@@ -37,7 +37,7 @@ function App() {
             >
               <span className="text-white font-bold text-lg">D</span>
             </motion.div>
-            <h1 className="text-xl font-bold">Dropbox-6</h1>
+            <h1 className="text-xl font-bold">Dropbox-7</h1>
           </div>
           
           <button
@@ -59,7 +59,7 @@ function App() {
 
       <footer className="py-4 border-t border-surface-200 dark:border-surface-800">
         <div className="container mx-auto px-4 text-center text-surface-500 dark:text-surface-400 text-sm">
-          © {new Date().getFullYear()} Dropbox-6. All rights reserved.
+          © {new Date().getFullYear()} Dropbox-7. All rights reserved.
         </div>
       </footer>
     </div>

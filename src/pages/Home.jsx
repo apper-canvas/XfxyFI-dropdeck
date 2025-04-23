@@ -18,7 +18,7 @@ const Home = () => {
             <span className="text-gradient">Share Files</span> with Confidence
           </h1>
           <p className="text-lg text-surface-600 dark:text-surface-300 mb-8">
-            Upload, organize, and share your files securely with Dropbox-6's intuitive platform.
+            Upload, organize, and share your files securely with Dropbox-7's intuitive platform.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button 
