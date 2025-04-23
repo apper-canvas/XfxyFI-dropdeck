@@ -1,69 +1,120 @@
-import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
-import { motion } from "framer-motion";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { FileExplorer } from './pages/FileExplorer'
+import { Menu, X, Upload, User } from 'lucide-react'
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    return savedMode ? JSON.parse(savedMode) : window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-surface-900/80 backdrop-blur-md border-b border-surface-200 dark:border-surface-800">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <motion.div
-              initial={{ rotate: 0 }}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center"
+    <Router>
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        {/* Header */}
+        <header className="bg-blue-600 text-white shadow-md">
+          <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 className="text-xl font-bold">Dropbox-8</h1>
+            
+            {/* Mobile menu button */}
+            <button 
+              onClick={toggleMenu}
+              className="md:hidden focus:outline-none"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
-              <span className="text-white font-bold text-lg">D</span>
-            </motion.div>
-            <h1 className="text-xl font-bold">Dropbox-7</h1>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+            
+            {/* Desktop navigation */}
+            <nav className="hidden md:flex items-center space-x-4">
+              <a href="/" className="px-3 py-2 rounded hover:bg-blue-700 transition">Home</a>
+              <a href="/files" className="px-3 py-2 rounded hover:bg-blue-700 transition">My Files</a>
+              <button className="flex items-center px-3 py-2 bg-blue-700 rounded hover:bg-blue-800 transition">
+                <Upload size={18} className="mr-1" />
+                Upload
+              </button>
+              <button className="flex items-center px-3 py-2 bg-blue-500 rounded hover:bg-blue-700 transition">
+                <User size={18} className="mr-1" />
+                Account
+              </button>
+            </nav>
           </div>
           
-          <button
-            onClick={toggleDarkMode}
-            className="p-2 rounded-full bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-        </div>
-      </header>
-
-      <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-
-      <footer className="py-4 border-t border-surface-200 dark:border-surface-800">
-        <div className="container mx-auto px-4 text-center text-surface-500 dark:text-surface-400 text-sm">
-          © {new Date().getFullYear()} Dropbox-7. All rights reserved.
-        </div>
-      </footer>
-    </div>
-  );
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="md:hidden bg-blue-700">
+              <nav className="container mx-auto px-4 py-2 flex flex-col">
+                <a href="/" className="px-3 py-2 rounded hover:bg-blue-600 transition">Home</a>
+                <a href="/files" className="px-3 py-2 rounded hover:bg-blue-600 transition">My Files</a>
+                <button className="flex items-center px-3 py-2 my-1 bg-blue-800 rounded hover:bg-blue-900 transition text-left">
+                  <Upload size={18} className="mr-2" />
+                  Upload
+                </button>
+                <button className="flex items-center px-3 py-2 my-1 bg-blue-600 rounded hover:bg-blue-800 transition text-left">
+                  <User size={18} className="mr-2" />
+                  Account
+                </button>
+              </nav>
+            </div>
+          )}
+        </header>
+        
+        {/* Main Content */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/files" element={<FileExplorer />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
+        
+        {/* Footer */}
+        <footer className="bg-gray-800 text-white py-6">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Dropbox-8</h3>
+                <p className="text-gray-400">Store, share, and collaborate on files securely from anywhere.</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Features</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li><a href="#" className="hover:text-white transition">File Storage</a></li>
+                  <li><a href="#" className="hover:text-white transition">File Sharing</a></li>
+                  <li><a href="#" className="hover:text-white transition">Collaboration</a></li>
+                  <li><a href="#" className="hover:text-white transition">Security</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Resources</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li><a href="#" className="hover:text-white transition">Help Center</a></li>
+                  <li><a href="#" className="hover:text-white transition">Tutorials</a></li>
+                  <li><a href="#" className="hover:text-white transition">Blog</a></li>
+                  <li><a href="#" className="hover:text-white transition">Community</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Company</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li><a href="#" className="hover:text-white transition">About</a></li>
+                  <li><a href="#" className="hover:text-white transition">Careers</a></li>
+                  <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                  <li><a href="#" className="hover:text-white transition">Privacy Policy</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+              <p>© 2023 Dropbox-8. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App

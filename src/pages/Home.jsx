@@ -1,85 +1,90 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import MainFeature from "../components/MainFeature";
+import { ArrowRight, Cloud, Lock, Users } from 'lucide-react'
 
-const Home = () => {
-  const [showFeature, setShowFeature] = useState(true);
-
+export function Home() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <section className="mb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Share Files</span> with Confidence
-          </h1>
-          <p className="text-lg text-surface-600 dark:text-surface-300 mb-8">
-            Upload, organize, and share your files securely with Dropbox-7's intuitive platform.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button 
-              onClick={() => setShowFeature(true)}
-              className={`btn ${showFeature ? 'btn-primary' : 'btn-outline'}`}
-            >
-              Upload Files
-            </button>
-            <button 
-              onClick={() => setShowFeature(false)}
-              className={`btn ${!showFeature ? 'btn-primary' : 'btn-outline'}`}
-            >
-              Learn More
-            </button>
+    <div>
+      {/* Hero Section */}
+      <section className="bg-blue-600 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Store, share, and collaborate with Dropbox-8
+            </h1>
+            <p className="text-xl mb-8">
+              The secure cloud storage solution for all your files, accessible from anywhere.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition">
+                Get Started - Free
+              </button>
+              <button className="bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-800 transition">
+                View Plans
+              </button>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {showFeature ? (
-        <MainFeature />
-      ) : (
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-        >
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="card p-6 hover:shadow-soft dark:hover:border-primary/50 transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
-                {feature.icon}
+      {/* Features Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Why choose Dropbox-8?</h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                <Cloud className="text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-surface-600 dark:text-surface-400">{feature.description}</p>
+              <h3 className="text-xl font-semibold mb-3">Cloud Storage</h3>
+              <p className="text-gray-600 mb-4">
+                Store all your files securely in the cloud and access them from any device, anywhere.
+              </p>
+              <a href="#" className="text-blue-600 font-medium flex items-center">
+                Learn more <ArrowRight size={16} className="ml-2" />
+              </a>
             </div>
-          ))}
-        </motion.section>
-      )}
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                <Users className="text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Collaboration</h3>
+              <p className="text-gray-600 mb-4">
+                Share files easily and collaborate with teammates in real-time for increased productivity.
+              </p>
+              <a href="#" className="text-blue-600 font-medium flex items-center">
+                Learn more <ArrowRight size={16} className="ml-2" />
+              </a>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                <Lock className="text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Security</h3>
+              <p className="text-gray-600 mb-4">
+                Keep your files safe with advanced encryption and secure sharing options.
+              </p>
+              <a href="#" className="text-blue-600 font-medium flex items-center">
+                Learn more <ArrowRight size={16} className="ml-2" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* CTA Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to get started with Dropbox-8?</h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Join millions of users who trust Dropbox-8 for their file storage and sharing needs.
+          </p>
+          <button className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition">
+            Sign Up Now - Free
+          </button>
+        </div>
+      </section>
     </div>
-  );
-};
-
-const features = [
-  {
-    title: "Drag & Drop",
-    description: "Simply drag your files into the upload area. Support for multiple files and folders.",
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3 3m0 0l-3-3m3 3V9" /></svg>
-  },
-  {
-    title: "Secure Sharing",
-    description: "Set passwords, expiration dates, and download limits for your shared files.",
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-  },
-  {
-    title: "File Organization",
-    description: "Create folders, categorize files, and search through your content with ease.",
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
-  }
-];
-
-export default Home;
+  )
+}
