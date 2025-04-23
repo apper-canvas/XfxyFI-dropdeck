@@ -8,7 +8,7 @@ export function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Store, share, and collaborate with Dropbox-8
+              Store, share, and collaborate with Dropbox-9
             </h1>
             <p className="text-xl mb-8">
               The secure cloud storage solution for all your files, accessible from anywhere.
@@ -28,7 +28,7 @@ export function Home() {
       {/* Features Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why choose Dropbox-8?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why choose Dropbox-9?</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
@@ -76,9 +76,9 @@ export function Home() {
       {/* CTA Section */}
       <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to get started with Dropbox-8?</h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to get started with Dropbox-9?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join millions of users who trust Dropbox-8 for their file storage and sharing needs.
+            Join millions of users who trust Dropbox-9 for their file storage and sharing needs.
           </p>
           <button className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition">
             Sign Up Now - Free
