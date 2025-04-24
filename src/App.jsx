@@ -26,7 +26,7 @@ function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 </button>
-                <h1 className="text-xl font-bold text-gray-800">Dropbox-12</h1>
+                <h1 className="text-xl font-bold text-gray-800">Dropbox-13</h1>
               </div>
               <div className="flex items-center space-x-4">
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
@@ -97,7 +97,7 @@ function App() {
           <footer className="bg-white border-t mt-8 py-4">
             <div className="container mx-auto px-4">
               <p className="text-center text-gray-500 text-sm">
-                &copy; {new Date().getFullYear()} Dropbox-12. All rights reserved.
+                &copy; {new Date().getFullYear()} Dropbox-13. All rights reserved.
               </p>
             </div>
           </footer>

@@ -13,7 +13,7 @@ function Home() {
     <div>
       {/* Welcome Section */}
       <div className="bg-blue-50 rounded-lg p-6 mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Welcome to Dropbox-12</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Welcome to Dropbox-13</h2>
         <p className="text-gray-600 mb-4">
           Store, share, and collaborate on files and folders from any mobile device, tablet, or computer
         </p>
