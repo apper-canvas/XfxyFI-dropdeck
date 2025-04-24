@@ -17,7 +17,7 @@ function App() {
         {/* Header */}
         <header className="bg-blue-600 text-white shadow-md">
           <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 className="text-xl font-bold">Dropbox-10</h1>
+            <h1 className="text-xl font-bold">Dropbox-11</h1>
             
             {/* Mobile menu button */}
             <button 
