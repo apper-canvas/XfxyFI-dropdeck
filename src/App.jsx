@@ -17,7 +17,7 @@ function App() {
         {/* Header */}
         <header className="bg-blue-600 text-white shadow-md">
           <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 className="text-xl font-bold">Dropbox-9</h1>
+            <h1 className="text-xl font-bold">Dropbox-10</h1>
             
             {/* Mobile menu button */}
             <button 
@@ -76,7 +76,7 @@ function App() {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
-                <h3 className="text-lg font-semibold mb-4">Dropbox-9</h3>
+                <h3 className="text-lg font-semibold mb-4">Dropbox-10</h3>
                 <p className="text-gray-400">Store, share, and collaborate on files securely from anywhere.</p>
               </div>
               <div>
@@ -108,7 +108,7 @@ function App() {
               </div>
             </div>
             <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-              <p>© 2023 Dropbox-9. All rights reserved.</p>
+              <p>© 2023 Dropbox-10. All rights reserved.</p>
             </div>
           </div>
         </footer>
